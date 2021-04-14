@@ -273,6 +273,29 @@ dependencies = [
 ]
 
 [[package]]
+name = "crossbeam-epoch"
+version = "0.9.3"
+source = "git+https://github.com/crossbeam-rs/crossbeam.git?branch=master#bb643823cffe58d2c3f0532e1c59870c9dc250ea"
+dependencies = [
+ "cfg-if 1.0.0",
+ "crossbeam-utils 0.8.3",
+ "lazy_static",
+ "memoffset 0.6.1",
+ "scopeguard",
+]
+
+[[package]]
+name = "crossbeam-skiplist"
+version = "0.0.0"
+source = "git+https://github.com/crossbeam-rs/crossbeam.git?branch=master#bb643823cffe58d2c3f0532e1c59870c9dc250ea"
+dependencies = [
+ "cfg-if 1.0.0",
+ "crossbeam-epoch 0.9.3",
+ "crossbeam-utils 0.8.3",
+ "scopeguard",
+]
+
+[[package]]
 name = "crossbeam-utils"
 version = "0.6.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -287,6 +310,16 @@ name = "crossbeam-utils"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "02d96d1e189ef58269ebe5b97953da3274d83a93af647c2ddd6f9dab28cedb8d"
+dependencies = [
+ "autocfg 1.0.1",
+ "cfg-if 1.0.0",
+ "lazy_static",
+]
+
+[[package]]
+name = "crossbeam-utils"
+version = "0.8.3"
+source = "git+https://github.com/crossbeam-rs/crossbeam.git?branch=master#bb643823cffe58d2c3f0532e1c59870c9dc250ea"
 dependencies = [
  "autocfg 1.0.1",
  "cfg-if 1.0.0",
@@ -495,11 +528,15 @@ dependencies = [
  "assert_cmd",
  "clap",
  "criterion",
+ "crossbeam-skiplist",
  "env_logger",
  "failure",
  "log",
+ "num_cpus",
+ "panic-control",
  "predicates",
  "rand 0.6.5",
+ "rayon",
  "serde",
  "serde_json",
  "sled",
@@ -621,6 +658,12 @@ dependencies = [
  "rayon",
  "serde",
 ]
+
+[[package]]
+name = "panic-control"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "159973aebc43b4640619042b3bf160e3b6348000a949e37c0806ae6acc79d6c7"
 
 [[package]]
 name = "ppv-lite86"
